@@ -32,12 +32,13 @@ pipeline {
 
         stage('Verify') {
             steps {
-                echo "mvn clean verify sonar:sonar"
+                sh "mvn clean verify sonar:sonar"
             }
         }
         stage('Deploy') {
             steps {
                 echo "deploy"
+                sh "mvn deploy"
             }
         }
     }
